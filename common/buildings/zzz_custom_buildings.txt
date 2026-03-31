@@ -14,7 +14,7 @@ buildings = {
 	# Non-shared, max 3 livelli per stato
 	# ========================================================================
 	heavy_machinery_factory = {
-		base_cost = 4000
+		base_cost = 5000
 		per_level_extra_cost = 600
 		infrastructure_construction_effect = yes
 
@@ -30,13 +30,13 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-				production_speed_buildings_factor = 0.10			# +10% velocità costruzione globale
-				industry_repair_factor = 0.15					# +15% velocità riparazione
+				production_speed_buildings_factor = 0.25			
+				industry_repair_factor = 0.15				
 			}
 		}
 
 		state_modifiers = {
-			local_building_slots_factor = 0.10					# +10% slot costruzione nello stato
+			local_building_slots_factor = 0.10				
 		}
 
 		level_cap = {
@@ -52,7 +52,7 @@ buildings = {
 	# Non-shared, max 2 livelli per stato
 	# ========================================================================
 	forced_labor_camp = {
-		base_cost = 2500
+		base_cost = 2000
 		per_level_extra_cost = 400
 		infrastructure_construction_effect = yes
 
@@ -68,17 +68,17 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-				production_factory_efficiency_gain_factor = 0.12	# +12% guadagno efficienza fabbrica
-				consumer_goods_factor = -0.01					# -1% beni di consumo necessari
-				industrial_capacity_factory = 0.05				# +5% output fabbriche militari
-				industrial_capacity_dockyard = 0.05				# +5% output cantieri navali
+				production_factory_efficiency_gain_factor = 0.12	
+				consumer_goods_factor = -0.01					
+				industrial_capacity_factory = 0.07				
+				industrial_capacity_dockyard = 0.07				
 			}
 		}
 
 		state_modifiers = {
-			local_factories_factor = 0.08						# +8% output fabbriche nello stato
-			recruitable_population_factor = -0.02				# -2% manpower reclutabile (MALUS)
-			resistance_target = 0.01							# +1% resistenza locale (MALUS)
+			local_factories_factor = 0.08						
+			recruitable_population_factor = -0.02			
+			resistance_target = 0.01							
 		}
 
 		level_cap = {
@@ -94,7 +94,7 @@ buildings = {
 	# Non-shared, max 2 livelli per stato
 	# ========================================================================
 	refugee_center = {
-		base_cost = 3000
+		base_cost = 2500
 		per_level_extra_cost = 500
 		infrastructure_construction_effect = yes
 
@@ -110,15 +110,15 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-				civilian_factory_use = 1						# -1 fabbrica civile (COSTO flat)
 				stability_factor = -0.01						# -1% stabilità (tensione sociale)
+				consumer_goods_factor = -0.01
 			}
 		}
 
 		state_modifiers = {
-			monthly_population = 0.05							# +5% crescita popolazione mensile
-			non_core_manpower = 0.02							# +2% manpower da stati non-core
-			local_manpower = 0.10								# +10% manpower locale
+			monthly_population = 0.06							# +5% crescita popolazione mensile
+			non_core_manpower = 0.03							# +2% manpower da stati non-core
+			local_manpower = 0.12								# +10% manpower locale
 		}
 
 		level_cap = {
@@ -133,7 +133,7 @@ buildings = {
 	# Non-shared, max 2 livelli per stato
 	# ========================================================================
 	research_center = {
-		base_cost = 5000
+		base_cost = 3000
 		per_level_extra_cost = 1500
 		infrastructure_construction_effect = yes
 
@@ -149,7 +149,7 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-				research_speed_factor = 0.15					# +15% velocità di ricerca
+				research_speed_factor = 0.20					
 			}
 		}
 
@@ -167,7 +167,7 @@ buildings = {
 	# Costo = somma dei tre edifici originali (dimezzati)
 	# ========================================================================
 	naval_aerospace_complex = {
-		base_cost = 14500								# 4500 + 5000 + 5000
+		base_cost = 10000								# 4500 + 5000 + 5000
 		per_level_extra_cost = 2750						# 750 + 1000 + 1000
 		infrastructure_construction_effect = yes
 
@@ -183,22 +183,27 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-				# --- Da Naval Parts Factory ---
-				production_speed_dockyard_factor = 0.12		# +12% velocità costruzione cantieri navali
-				naval_equipment_design_cost_factor = -0.24	# -24% costo design navale (×4)
-				# --- Da Aircraft Parts Factory (×4) ---
-				air_range_factor = 0.16						# +16% gittata aerei
-				air_maximum_speed_factor = 0.12				# +12% velocità massima aerei
-				# --- Da Naval Tech Center (×4) ---
-				naval_speed_factor = 0.16					# +16% velocità navi
-				navy_max_range_factor = 0.20				# +20% gittata operativa navale
+				# --- Output Globale (Tutti i dockyard del paese) ---
+				naval_factory_output = 0.15              
+				ship_build_speed_factor = 0.10           
+				
+				# --- Quelli che avevi già ---
+				production_speed_dockyard_factor = 0.25		
+				naval_equipment_design_cost_factor = -0.55	
+				air_range_factor = 0.04						
+				air_maximum_speed_factor = 0.04				
+				naval_speed_factor = 0.04					
+				navy_max_range_factor = 0.04				
 			}
 		}
 
 		state_modifiers = {
-			# --- Da Naval Parts Factory (×4) ---
-			local_ship_build_speed_factor = 0.20			# +20% velocità produzione navi nello stato
-			arms_factory_output_factor = 0.20				# +20% output fabbriche militari nello stato
+			# --- Output Locale (Solo i dockyard in quello Stato) ---
+			local_naval_factory_output = 0.20             # +20% output dockyard nello stato
+			
+			# --- Quelli che avevi già ---
+			local_ship_build_speed_factor = 0.20			
+			arms_factory_output_factor = 0.10				
 		}
 
 		level_cap = {
@@ -240,6 +245,8 @@ buildings = {
 		state_modifiers = {
 			resistance_target = -0.02					# -2% target resistenza (propaganda sopprime dissenso)
 			compliance_growth = 0.02					# +2% crescita conformità nello stato
+			non_core_manpower = 0.01							# +2% manpower da stati non-core
+			local_manpower = 0.06							# +10% manpower locale
 		}
 
 		level_cap = {

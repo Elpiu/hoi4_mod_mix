@@ -1,0 +1,125 @@
+# ============================================================================
+# CUSTOM UNITS MOD
+# ============================================================================
+# File: common/units/custom_units.txt
+# Defines: Camicie Bianche (defensive militia) + Camicie Rosse (elite assault)
+# Both units use category "infantry" — no territorial malus, no tech required.
+#
+# NOTA: combat stats (soft_attack, defense, ecc.) sono MODIFICATORI PERCENTUALI
+#       es. soft_attack = 0.3 significa +30% al soft attack base dell'equipment
+# ============================================================================
+
+sub_units = {
+
+	# ========================================================================
+	# CAMICIE BIANCHE
+	# ------------------------------------------------------------------------
+	# Defensive militia / riot suppression unit
+	# 1500 manpower (1.5x infantry), 50 rifles (metà)
+	# Meno organizzazione, forte in difesa, alta soppressione
+	# Trade-off: deboli in attacco, ottime nel tenere terreno e sopprimere rivolte
+	# ========================================================================
+	camicie_bianche = {
+		abbreviation = "CB"
+		sprite = infantry
+		map_icon_category = infantry
+
+		priority = 600
+		ai_priority = 100
+		active = yes						# Available from start, no tech required
+
+		type = {
+			infantry
+		}
+
+		group = infantry
+
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_all_infantry
+			category_army
+		}
+
+		combat_width = 2
+
+		need = {
+			infantry_equipment = 50			# Metà rispetto all'infantry standard
+		}
+
+		# === STATS BASE (valori assoluti) ===
+		max_strength = 37.5				# 1.5x infantry (25) — scala con manpower
+		max_organisation = 40			# < infantry (60) — meno organizzati
+		default_morale = 0.3
+		manpower = 1500					# 1.5x infantry (1000)
+
+		# === LOGISTICA ===
+		training_time = 90				# Uguale all'infantry
+		suppression = 5					# Alto — 5x infantry (1), specialità principale
+		initiative = 0
+
+		# === COMBATTIMENTO (modificatori % sull'equipment base) ===
+		soft_attack = -0.25				# -25% attacco (50 fucili invece di 100)
+		hard_attack = -0.5				# -50% anti-blindati (milizia leggera)
+		defense = 0.45					# +45% difesa (specializzazione difensiva)
+		breakthrough = -0.35			# -35% sfondamento (non unità d'assalto)
+		entrenchment = 1				# +1 bonus trinceramento assoluto
+	}
+
+	# ========================================================================
+	# CAMICIE ROSSE
+	# ------------------------------------------------------------------------
+	# Elite assault infantry
+	# 2000 manpower (2x infantry), 100 rifles + 5 support equipment
+	# Alta organizzazione, forti in attacco e difesa
+	# Trade-off: addestramento più lungo (120 gg vs 90 gg)
+	# ========================================================================
+	camicie_rosse = {
+		abbreviation = "CR"
+		sprite = infantry
+		map_icon_category = infantry
+
+		priority = 700
+		ai_priority = 150
+		active = yes					# Available from start, no tech required
+
+		type = {
+			infantry
+		}
+
+		group = infantry
+
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_all_infantry
+			category_army
+		}
+
+		combat_width = 2
+
+		need = {
+			infantry_equipment = 100	# Standard come infantry
+			support_equipment = 5		# Equipment di supporto — versatilità élite
+		}
+
+		# === STATS BASE (valori assoluti) ===
+		max_strength = 50				# 2x infantry (25) — scala con manpower
+		max_organisation = 80			# > infantry (60) — addestramento d'élite
+		default_morale = 0.2			# > infantry (0.3) — maggiore dedizione
+		manpower = 1200					# 2x infantry (1000)
+
+		# === LOGISTICA ===
+		training_time = 120				# +30 gg rispetto all'infantry (90)
+		suppression = 1					# Standard — non specializzati
+		initiative = 0.1				# Leggero bonus reazione — élite
+		recon = 1						# Leggero bonus ricognizione
+
+		# === COMBATTIMENTO (modificatori % sull'equipment base) ===
+		soft_attack = 0.30				# +30% attacco (élite addestrata)
+		hard_attack = 0.20				# +20% anti-blindati
+		defense = 0.30					# +30% difesa
+		breakthrough = 0.30				# +40% sfondamento (specializzazione assalto)
+	}
+
+}

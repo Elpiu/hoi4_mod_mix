@@ -72,3 +72,15 @@
  modifier_production_speed_propaganda_ministry_factor_desc:0 "Modifica la velocità di costruzione del §YMinistero della Propaganda§!."
  modifier_state_production_propaganda_ministry_factor:0 "Velocità costruzione §YMinistero della Propaganda§!"
  modifier_state_production_propaganda_ministry_factor_desc:0 "Modifica la velocità di costruzione del §YMinistero della Propaganda§! in questo stato."
+
+ # ============================================================================
+ # CAMICIE BIANCHE
+ # ============================================================================
+ camicie_bianche:0 "Camicie Bianche"
+ camicie_bianche_desc:0 "Milizia paramilitare organizzata per la guerra difensiva e il mantenimento dell'ordine interno. Numerose ma con armamento leggero, eccellono nel tenere posizioni fortificate e nel sopprimere i disordini civili. Nessuna restrizione territoriale — possono essere schierate ovunque senza penalità."
+
+ # ============================================================================
+ # CAMICIE ROSSE
+ # ============================================================================
+ camicie_rosse:0 "Camicie Rosse"
+ camicie_rosse_desc:0 "Fanteria d'élite addestrata per operazioni offensive. Più numerose e molto meglio equipaggiate della fanteria standard, rappresentano il vertice delle capacità di combattimento terrestre. La loro formazione richiede tempo e risorse significativamente superiori rispetto alle truppe regolari."

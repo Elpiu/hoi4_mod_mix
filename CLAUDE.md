@@ -26,6 +26,15 @@ Mod per **Hearts of Iron IV** che aggiunge nuovi edifici custom al gioco. Il pro
 >
 > **v1.2.0 — Cambiamenti:** Tutti i costi dimezzati. Merge di `naval_parts_factory` + `aircraft_parts_factory` + `naval_tech_center` in `naval_aerospace_complex`. Bilanciamento potenziato su tutti gli edifici.
 
+### Unità implementate (v1.4.0)
+
+| ID interno | Nome IT | Manpower | Max Org | Forza | Training | Fucili | Support | Specialità |
+|---|---|---|---|---|---|---|---|---|
+| `camicie_bianche` | Camicie Bianche | 1500 | 40 | 37.5 | 90 gg | 50 | — | Difesa + Soppressione (5) |
+| `camicie_rosse` | Camicie Rosse | 2000 | 80 | 50 | 150 gg | 100 | 5 | Assalto élite |
+
+> **v1.4.0 — Cambiamenti:** Aggiunte 2 unità custom (`common/units/custom_units.txt`). Entrambe usano `active = yes` — disponibili da subito senza tech. Nessun malus territoriale (categoria `infantry` standard). Loc aggiunta ai file YML esistenti.
+
 ### File esistenti
 
 ```
@@ -44,14 +53,16 @@ custom_buildings/
 │   ├── ideas/
 │   │   ├── custom_designers.txt                      # Design company (aircraft + naval)
 │   │   └── industrial_investment_ideas.txt           # Idee investimento industriale
-│   └── modifiers/
-│       └── industrial_investment_modifiers.txt       # Modifier investimento
+│   ├── modifiers/
+│   │   └── industrial_investment_modifiers.txt       # Modifier investimento
+│   └── units/
+│       └── custom_units.txt                          # Definizioni 2 unità custom
 └── localisation/
     ├── english/
-    │   ├── custom_buildings_l_english.yml             # Localizzazione edifici EN
+    │   ├── custom_buildings_l_english.yml             # Localizzazione edifici + unità EN
     │   └── industrial_investment_l_english.yml        # Localizzazione decisioni EN
     └── italian/
-        ├── custom_buildings_l_italian.yml             # Localizzazione edifici IT
+        ├── custom_buildings_l_italian.yml             # Localizzazione edifici + unità IT
         └── industrial_investment_l_italian.yml        # Localizzazione decisioni IT
 ```
 

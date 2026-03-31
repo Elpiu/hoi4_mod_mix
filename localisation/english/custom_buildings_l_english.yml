@@ -72,3 +72,15 @@
  modifier_production_speed_propaganda_ministry_factor_desc:0 "Modifies the speed of §YPropaganda Ministry§! construction."
  modifier_state_production_propaganda_ministry_factor:0 "§YPropaganda Ministry§! construction speed"
  modifier_state_production_propaganda_ministry_factor_desc:0 "Modifies the speed of §YPropaganda Ministry§! construction in this state."
+
+ # ============================================================================
+ # CAMICIE BIANCHE
+ # ============================================================================
+ camicie_bianche:0 "Camicie Bianche"
+ camicie_bianche_desc:0 "Paramilitary militia organized for defensive warfare and internal order enforcement. Numerous but lightly armed, they excel at holding fortified positions and suppressing civil unrest. No territorial restrictions — they can be deployed anywhere without penalty."
+
+ # ============================================================================
+ # CAMICIE ROSSE
+ # ============================================================================
+ camicie_rosse:0 "Camicie Rosse"
+ camicie_rosse_desc:0 "Elite assault infantry, extensively trained for offensive operations. More numerous and far better equipped than standard infantry, they represent the pinnacle of ground combat capability. Their formation requires significantly more time and resources than regular troops."
