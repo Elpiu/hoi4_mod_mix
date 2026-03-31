@@ -1,0 +1,40 @@
+﻿l_italian:
+ # =============================================
+ # INDUSTRIAL INVESTMENT - Localizzazione IT
+ # =============================================
+
+ # --- Categoria ---
+ industrial_investment:0 "Investimento Industriale"
+ industrial_investment_desc:0 "Una serie di decisioni per sviluppare massicciamente la base industriale della nazione, dalla pianificazione all'industrializzazione totale."
+
+ # --- Nodo 1: Pianificazione Industriale ---
+ industrial_planning:0 "Pianificazione Industriale"
+ industrial_planning_desc:0 "Commissiona un piano nazionale completo per riorientare capitali e manodopera verso lo sviluppo industriale. Aumenta la velocità di costruzione per §Y365 giorni§!."
+
+ # --- Nodo 2: Espansione Industriale Civile ---
+ civilian_industrial_expansion:0 "Espansione Industriale Civile"
+ civilian_industrial_expansion_desc:0 "Destina due fabbriche civili alla costruzione di §G+3 Complessi Industriali§! nello stato capitale. Richiede §Y90 giorni§! e 2 fabbriche civili."
+
+ # --- Nodo 3: Complesso Militare-Industriale ---
+ military_industrial_complex:0 "Complesso Militare-Industriale"
+ military_industrial_complex_desc:0 "Stabilisci un complesso militare-industriale dedicato nella capitale. Aggiunge §G+3 Fabbriche d'Armi§! immediatamente al completamento. Richiede §Y90 giorni§! e 2 fabbriche civili."
+
+ # --- Nodo 4: Programma Cantieri Navali ---
+ naval_shipyard_program:0 "Programma Cantieri Navali"
+ naval_shipyard_program_desc:0 "Finanzia un programma di costruzione su larga scala nel miglior stato costiero. Aggiunge §G+6 Cantieri Navali§! immediatamente al completamento. Richiede §Y90 giorni§! e 2 fabbriche civili."
+
+ # --- Nodo 5: Sfruttamento Risorse ---
+ resource_exploitation:0 "Sfruttamento Risorse"
+ resource_exploitation_desc:0 "Avvia operazioni di estrazione su larga scala nello stato capitale. Aggiunge permanentemente §G+8 Acciaio, +5 Petrolio, +4 Alluminio, +3 Cromo§!. Richiede §Y60 giorni§!."
+
+ # --- Nodo 6: Industrializzazione Massiccia (Capstone) ---
+ massive_industrialization_decision:0 "Industrializzazione Massiccia"
+ massive_industrialization_decision_desc:0 "Impegna la nazione in uno sforzo industriale totale. L'infrastruttura viene sviluppata in ogni stato core, la capitale riceve un'iniezione immediata di fabbriche, e la nazione acquisisce permanentemente lo spirito nazionale §Y$massive_industrialization_idea$§!.\n\nRichiede §Y180 giorni§! e 3 fabbriche civili."
+
+ # --- Modificatore temporaneo (Nodo 1) ---
+ industrial_planning_boost:0 "Piano Industriale Nazionale"
+ industrial_planning_boost_desc:0 "Un'ondata di investimenti nazionali accelera le costruzioni e amplia la capacità edificatoria."
+
+ # --- Spirito Nazionale Permanente (Nodo 6) ---
+ massive_industrialization_idea:0 "Superpotenza Industriale"
+ massive_industrialization_idea_desc:0 "Anni di investimenti sostenuti hanno trasformato questa nazione in un colosso industriale. Le nostre fabbriche operano alla massima efficienza e la domanda di beni di consumo è tenuta sotto controllo."

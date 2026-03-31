@@ -1,0 +1,305 @@
+# ============================================================
+# INDUSTRIAL INVESTMENT - Decision Chain
+# A 6-node branch available to every nation.
+#
+# Tree structure:
+#   [1. industrial_planning]
+#            |
+#   [2. civilian_industrial_expansion]
+#          /                 \
+#  [3. military_          [4. naval_
+#   industrial_complex]    shipyard_program]
+#          \                 /
+#   [5. resource_exploitation]
+#            |
+#   [6. massive_industrialization_decision]
+# ============================================================
+
+industrial_investment = {
+
+    # ========================================================
+    # NODE 1 — Industrial Planning
+    # Always available. Instant. Sets the flag that unlocks
+    # the rest of the chain. Grants a temporary build bonus.
+    # ========================================================
+    industrial_planning = {
+        icon = generic_industry
+        is_good = yes
+
+        available = {
+            NOT = { has_country_flag = cb_industrial_planning_done }
+        }
+
+        visible = {
+            NOT = { has_country_flag = cb_industrial_planning_done }
+        }
+
+        cost = 50
+
+        complete_effect = {
+            set_country_flag = cb_industrial_planning_done
+            add_country_modifier = {
+                name = industrial_planning_boost
+                duration = 365
+            }
+        }
+
+        ai_will_do = {
+            factor = 1
+        }
+    }
+
+    # ========================================================
+    # NODE 2 — Civilian Industrial Expansion
+    # Requires: Node 1.
+    # Uses 2 CIV for 90 days, then adds +3 civilian factories
+    # (with matching extra slots) in the capital state.
+    # ========================================================
+    civilian_industrial_expansion = {
+        icon = generic_build_infrastructure
+        is_good = yes
+
+        available = {
+            has_country_flag = cb_industrial_planning_done
+            NOT = { has_country_flag = cb_civilian_expansion_done }
+        }
+
+        visible = {
+            has_country_flag = cb_industrial_planning_done
+            NOT = { has_country_flag = cb_civilian_expansion_done }
+        }
+
+        cost = 100
+        days_remove = 90
+        civilian_factory_use = 2
+
+        remove_effect = {
+            set_country_flag = cb_civilian_expansion_done
+            capital_scope = {
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 0.5
+        }
+    }
+
+    # ========================================================
+    # NODE 3 — Military Industrial Complex
+    # Requires: Node 2. Parallel with Node 4.
+    # Uses 2 CIV for 90 days, then adds +3 arms factories
+    # (with matching extra slots) in the capital state.
+    # ========================================================
+    military_industrial_complex = {
+        icon = generic_army_support
+        is_good = yes
+
+        available = {
+            has_country_flag = cb_civilian_expansion_done
+            NOT = { has_country_flag = cb_military_complex_done }
+        }
+
+        visible = {
+            has_country_flag = cb_civilian_expansion_done
+            NOT = { has_country_flag = cb_military_complex_done }
+        }
+
+        cost = 100
+        days_remove = 90
+        civilian_factory_use = 2
+
+        remove_effect = {
+            set_country_flag = cb_military_complex_done
+            capital_scope = {
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = arms_factory
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 0.3
+        }
+    }
+
+    # ========================================================
+    # NODE 4 — Naval Shipyard Program
+    # Requires: Node 2. Parallel with Node 3.
+    # Uses 2 CIV for 90 days, then adds +6 dockyards
+    # in the first available coastal state.
+    # ========================================================
+    naval_shipyard_program = {
+        icon = generic_naval
+        is_good = yes
+
+        available = {
+            has_country_flag = cb_civilian_expansion_done
+            NOT = { has_country_flag = cb_naval_program_done }
+        }
+
+        visible = {
+            has_country_flag = cb_civilian_expansion_done
+            NOT = { has_country_flag = cb_naval_program_done }
+        }
+
+        cost = 100
+        days_remove = 90
+        civilian_factory_use = 2
+
+        remove_effect = {
+            set_country_flag = cb_naval_program_done
+            # Find the best owned coastal state for dockyards.
+            # Falls back to capital if no coastal state is found.
+            random_owned_controlled_state = {
+                limit = {
+                    is_coastal = yes
+                    is_core_of = ROOT
+                }
+                add_extra_state_shared_building_slots = 6
+                add_building_construction = {
+                    type = dockyard
+                    level = 6
+                    instant_build = yes
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 0.3
+        }
+    }
+
+    # ========================================================
+    # NODE 5 — Resource Exploitation
+    # Requires: Node 3 OR Node 4.
+    # 60-day operation. Adds raw resources directly to the
+    # capital state. HOI4 vanilla resources only (no coal/iron).
+    # ========================================================
+    resource_exploitation = {
+        icon = generic_resources
+        is_good = yes
+
+        available = {
+            OR = {
+                has_country_flag = cb_military_complex_done
+                has_country_flag = cb_naval_program_done
+            }
+            NOT = { has_country_flag = cb_resource_exploitation_done }
+        }
+
+        visible = {
+            OR = {
+                has_country_flag = cb_military_complex_done
+                has_country_flag = cb_naval_program_done
+            }
+            NOT = { has_country_flag = cb_resource_exploitation_done }
+        }
+
+        cost = 75
+        days_remove = 60
+
+        remove_effect = {
+            set_country_flag = cb_resource_exploitation_done
+            capital_scope = {
+                add_resource = {
+                    type = steel
+                    amount = 8
+                }
+                add_resource = {
+                    type = oil
+                    amount = 5
+                }
+                add_resource = {
+                    type = aluminium
+                    amount = 4
+                }
+                add_resource = {
+                    type = chromium
+                    amount = 3
+                }
+            }
+        }
+
+        ai_will_do = {
+            factor = 0.2
+        }
+    }
+
+    # ========================================================
+    # NODE 6 — Massive Industrialization (Capstone)
+    # Requires: Nodes 3, 4, AND 5 all completed.
+    # Uses 3 CIV for 180 days.
+    #
+    # "Off-map factories" effect:
+    #   - Every owned core state gets +2 extra building slots
+    #     (represents diffuse nationwide infrastructure investment)
+    #   - Capital gets +5 extra slots + 3 civ + 2 mil instant build
+    #   - Permanent national spirit: +15% build speed,
+    #     +10% factory efficiency gain, -5% consumer goods
+    # ========================================================
+    massive_industrialization_decision = {
+        icon = generic_industry
+        is_good = yes
+
+        available = {
+            has_country_flag = cb_military_complex_done
+            has_country_flag = cb_naval_program_done
+            has_country_flag = cb_resource_exploitation_done
+            NOT = { has_country_flag = cb_massive_industrialization_done }
+        }
+
+        visible = {
+            has_country_flag = cb_military_complex_done
+            has_country_flag = cb_naval_program_done
+            has_country_flag = cb_resource_exploitation_done
+            NOT = { has_country_flag = cb_massive_industrialization_done }
+        }
+
+        cost = 150
+        days_remove = 180
+        civilian_factory_use = 3
+
+        remove_effect = {
+            set_country_flag = cb_massive_industrialization_done
+
+            # +2 extra slots in every owned core state (the "off-map" spread)
+            every_owned_state = {
+                limit = {
+                    is_core_of = ROOT
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+
+            # Concentrated investment in the capital
+            capital_scope = {
+                add_extra_state_shared_building_slots = 5
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 3
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+
+            # Permanent national spirit
+            add_ideas = massive_industrialization_idea
+        }
+
+        ai_will_do = {
+            factor = 0.1
+        }
+    }
+}

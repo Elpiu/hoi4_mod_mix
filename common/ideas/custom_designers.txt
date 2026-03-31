@@ -1,0 +1,119 @@
+# ============================================================================
+# CUSTOM DESIGN COMPANIES
+# ============================================================================
+# These ideas appear as "Adjusters" in the Ship Designer and Plane Designer.
+# They are unlocked only when the corresponding building exists in any owned state.
+# Cost: 150 PP to hire.
+# ============================================================================
+
+ideas = {
+
+	# ========================================================================
+	# AIRCRAFT MANUFACTURER
+	# Unlocked by: naval_aerospace_complex (level > 0 in any owned state)
+	# Bonuses appear in the Plane Designer for small/large/carrier airframes
+	# ========================================================================
+	aircraft_manufacturer = {
+
+		custom_aero_design = {
+			picture = GFX_idea_generic_air_manufacturer_1
+
+			allowed = { always = yes }
+
+			# Only hireable if the player has built the Naval-Aerospace Complex
+			available = {
+				any_owned_state = {
+					naval_aerospace_complex > 0
+				}
+			}
+
+			allowed_civil_war = { always = yes }
+
+			cost = 150
+			removal_cost = -1
+
+			equipment_bonus = {
+				small_plane_airframe = {
+					air_range         = 0.10	# +10% gittata
+					air_maximum_speed = 0.05	# +5% velocità max
+					instant = yes
+				}
+				large_plane_airframe = {
+					air_range         = 0.10
+					air_maximum_speed = 0.05
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					air_range         = 0.08
+					air_maximum_speed = 0.05
+					instant = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 2
+					num_of_military_factories > 20
+				}
+			}
+		}
+	}
+
+	# ========================================================================
+	# NAVAL MANUFACTURER
+	# Unlocked da: naval_aerospace_complex (level > 0 in any owned state)
+	# Bonus visibili nel Ship Designer per tutti i tipi di scafo
+	# ========================================================================
+	naval_manufacturer = {
+
+		custom_naval_tech = {
+			picture = GFX_idea_generic_naval_manufacturer_1
+
+			allowed = { always = yes }
+
+			# Only hireable if the player has built the Naval-Aerospace Complex
+			available = {
+				any_owned_state = {
+					naval_aerospace_complex > 0
+				}
+			}
+
+			allowed_civil_war = { always = yes }
+
+			cost = 150
+			removal_cost = -1
+
+			equipment_bonus = {
+				ship_hull_light = {
+					naval_speed = 0.08		# +8% velocità
+					max_range   = 0.10		# +10% gittata operativa
+					instant = yes
+				}
+				ship_hull_heavy = {
+					naval_speed = 0.06
+					max_range   = 0.10
+					instant = yes
+				}
+				ship_hull_carrier = {
+					naval_speed = 0.05
+					max_range   = 0.10
+					instant = yes
+				}
+				ship_hull_submarine = {
+					naval_speed = 0.08
+					max_range   = 0.12		# sottomarini beneficiano di più gittata
+					instant = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 2
+					has_navy_size = { size > 10 }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+﻿l_italian:
+
+ # ============================================================================
+ # FABBRICA DI MACCHINARI PESANTI
+ # ============================================================================
+ heavy_machinery_factory:0 "Fabbrica Macchinari Pesanti"
+ heavy_machinery_factory_desc:0 "Un complesso industriale dedicato alla produzione di macchinari da costruzione e attrezzature pesanti. Aumenta significativamente la velocità di costruzione e lo sviluppo infrastrutturale."
+ heavy_machinery_factory_plural:0 "Fabbriche Macchinari Pesanti"
+
+ modifier_production_speed_heavy_machinery_factory_factor:0 "Velocità costruzione §YFabbrica Macchinari Pesanti§!"
+ modifier_production_speed_heavy_machinery_factory_factor_desc:0 "Modifica la velocità di costruzione della §YFabbrica Macchinari Pesanti§!."
+ modifier_state_production_heavy_machinery_factory_factor:0 "Velocità costruzione §YFabbrica Macchinari Pesanti§!"
+ modifier_state_production_heavy_machinery_factory_factor_desc:0 "Modifica la velocità di costruzione della §YFabbrica Macchinari Pesanti§! in questo stato."
+
+ # ============================================================================
+ # CAMPO DI LAVORI FORZATI
+ # ============================================================================
+ forced_labor_camp:0 "Campo di Lavori Forzati"
+ forced_labor_camp_desc:0 "Una struttura brutale che sfrutta il lavoro dei prigionieri per la produzione industriale. Fornisce un notevole output economico a costo della manodopera disponibile e di un aumento della resistenza locale."
+ forced_labor_camp_plural:0 "Campi di Lavori Forzati"
+
+ modifier_production_speed_forced_labor_camp_factor:0 "Velocità costruzione §YCampo di Lavori Forzati§!"
+ modifier_production_speed_forced_labor_camp_factor_desc:0 "Modifica la velocità di costruzione del §YCampo di Lavori Forzati§!."
+ modifier_state_production_forced_labor_camp_factor:0 "Velocità costruzione §YCampo di Lavori Forzati§!"
+ modifier_state_production_forced_labor_camp_factor_desc:0 "Modifica la velocità di costruzione del §YCampo di Lavori Forzati§! in questo stato."
+
+ # ============================================================================
+ # CENTRO DI ACCOGLIENZA
+ # ============================================================================
+ refugee_center:0 "Centro di Accoglienza"
+ refugee_center_desc:0 "Una struttura che fornisce rifugio e servizi di integrazione per le popolazioni sfollate. Aumenta la manodopera locale e la crescita della popolazione, ma richiede l'utilizzo di capacità produttiva civile per il mantenimento."
+ refugee_center_plural:0 "Centri di Accoglienza"
+
+ modifier_production_speed_refugee_center_factor:0 "Velocità costruzione §YCentro di Accoglienza§!"
+ modifier_production_speed_refugee_center_factor_desc:0 "Modifica la velocità di costruzione del §YCentro di Accoglienza§!."
+ modifier_state_production_refugee_center_factor:0 "Velocità costruzione §YCentro di Accoglienza§!"
+ modifier_state_production_refugee_center_factor_desc:0 "Modifica la velocità di costruzione del §YCentro di Accoglienza§! in questo stato."
+
+ # ============================================================================
+ # CENTRO DI RICERCA
+ # ============================================================================
+ research_center:0 "Centro di Ricerca"
+ research_center_desc:0 "Una struttura scientifica all'avanguardia con ricercatori di alto livello e laboratori di ultima generazione. Accelera lo sviluppo tecnologico in tutti i campi."
+ research_center_plural:0 "Centri di Ricerca"
+
+ modifier_production_speed_research_center_factor:0 "Velocità costruzione §YCentro di Ricerca§!"
+ modifier_production_speed_research_center_factor_desc:0 "Modifica la velocità di costruzione del §YCentro di Ricerca§!."
+ modifier_state_production_research_center_factor:0 "Velocità costruzione §YCentro di Ricerca§!"
+ modifier_state_production_research_center_factor_desc:0 "Modifica la velocità di costruzione del §YCentro di Ricerca§! in questo stato."
+
+ # ============================================================================
+ # COMPLESSO NAVALE-AERONAUTICO
+ # (Merge di: Fabbrica Pezzi Navali + Fabbrica Componenti Aeronautici + Centro Tecnologie Navali)
+ # ============================================================================
+ naval_aerospace_complex:0 "Complesso Navale-Aeronautico"
+ naval_aerospace_complex_desc:0 "Un enorme hub industriale e tecnologico integrato che combina la produzione di componenti navali, la manifattura di parti aeronautiche e la ricerca avanzata sulle tecnologie navali. Potenzia drasticamente la produzione navale, l'output dei cantieri, le prestazioni degli aerei e le capacità operative della flotta."
+ naval_aerospace_complex_plural:0 "Complessi Navali-Aeronautici"
+
+ modifier_production_speed_naval_aerospace_complex_factor:0 "Velocità costruzione §YComplesso Navale-Aeronautico§!"
+ modifier_production_speed_naval_aerospace_complex_factor_desc:0 "Modifica la velocità di costruzione del §YComplesso Navale-Aeronautico§!."
+ modifier_state_production_naval_aerospace_complex_factor:0 "Velocità costruzione §YComplesso Navale-Aeronautico§!"
+ modifier_state_production_naval_aerospace_complex_factor_desc:0 "Modifica la velocità di costruzione del §YComplesso Navale-Aeronautico§! in questo stato."
+
+ # ============================================================================
+ # MINISTERO DELLA PROPAGANDA
+ # ============================================================================
+ propaganda_ministry:0 "Ministero della Propaganda"
+ propaganda_ministry_desc:0 "Un apparato statale dedicato a plasmare l'opinione pubblica e controllare il flusso di informazioni. Aumenta la generazione di potere politico e la stabilità nazionale, ma deteriora le relazioni commerciali con l'estero e sopprime la resistenza locale attraverso paura e conformismo."
+ propaganda_ministry_plural:0 "Ministeri della Propaganda"
+
+ modifier_production_speed_propaganda_ministry_factor:0 "Velocità costruzione §YMinistero della Propaganda§!"
+ modifier_production_speed_propaganda_ministry_factor_desc:0 "Modifica la velocità di costruzione del §YMinistero della Propaganda§!."
+ modifier_state_production_propaganda_ministry_factor:0 "Velocità costruzione §YMinistero della Propaganda§!"
+ modifier_state_production_propaganda_ministry_factor_desc:0 "Modifica la velocità di costruzione del §YMinistero della Propaganda§! in questo stato."

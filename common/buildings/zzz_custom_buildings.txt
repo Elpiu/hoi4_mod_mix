@@ -1,0 +1,248 @@
+# ============================================================================
+# CUSTOM BUILDINGS MOD - New Industrial & Social Buildings
+# ============================================================================
+# File: common/buildings/zzz_custom_buildings.txt
+# Prefix zzz_ ensures evaluation AFTER vanilla buildings
+# ============================================================================
+
+buildings = {
+
+	# ========================================================================
+	# 1. FABBRICA DI MACCHINARI PESANTI (Heavy Machinery Factory)
+	# ------------------------------------------------------------------------
+	# Boost alle costruzioni nello stato e a livello nazionale
+	# Non-shared, max 3 livelli per stato
+	# ========================================================================
+	heavy_machinery_factory = {
+		base_cost = 4000
+		per_level_extra_cost = 600
+		infrastructure_construction_effect = yes
+
+		value = 5
+		icon_frame = 12
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.5
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				production_speed_buildings_factor = 0.10			# +10% velocità costruzione globale
+				industry_repair_factor = 0.15					# +15% velocità riparazione
+			}
+		}
+
+		state_modifiers = {
+			local_building_slots_factor = 0.10					# +10% slot costruzione nello stato
+		}
+
+		level_cap = {
+			state_max = 3
+		}
+	}
+
+	# ========================================================================
+	# 2. CAMPO DI LAVORI FORZATI (Forced Labor Camp)
+	# ------------------------------------------------------------------------
+	# Boost costruzioni + produzione di fabbrica
+	# MALUS sulla manpower (recruitable population) e resistenza
+	# Non-shared, max 2 livelli per stato
+	# ========================================================================
+	forced_labor_camp = {
+		base_cost = 2500
+		per_level_extra_cost = 400
+		infrastructure_construction_effect = yes
+
+		value = 3
+		icon_frame = 13
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.3
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				production_factory_efficiency_gain_factor = 0.12	# +12% guadagno efficienza fabbrica
+				consumer_goods_factor = -0.01					# -1% beni di consumo necessari
+				industrial_capacity_factory = 0.05				# +5% output fabbriche militari
+				industrial_capacity_dockyard = 0.05				# +5% output cantieri navali
+			}
+		}
+
+		state_modifiers = {
+			local_factories_factor = 0.08						# +8% output fabbriche nello stato
+			recruitable_population_factor = -0.02				# -2% manpower reclutabile (MALUS)
+			resistance_target = 0.01							# +1% resistenza locale (MALUS)
+		}
+
+		level_cap = {
+			state_max = 2
+		}
+	}
+
+	# ========================================================================
+	# 3. CENTRO DI ACCOGLIENZA (Refugee Center)
+	# ------------------------------------------------------------------------
+	# +monthly population nello stato
+	# Consuma fabbriche civili a livello nazionale (flat)
+	# Non-shared, max 2 livelli per stato
+	# ========================================================================
+	refugee_center = {
+		base_cost = 3000
+		per_level_extra_cost = 500
+		infrastructure_construction_effect = yes
+
+		value = 3
+		icon_frame = 14
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.3
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				civilian_factory_use = 1						# -1 fabbrica civile (COSTO flat)
+				stability_factor = -0.01						# -1% stabilità (tensione sociale)
+			}
+		}
+
+		state_modifiers = {
+			monthly_population = 0.05							# +5% crescita popolazione mensile
+			non_core_manpower = 0.02							# +2% manpower da stati non-core
+			local_manpower = 0.10								# +10% manpower locale
+		}
+
+		level_cap = {
+			state_max = 2
+		}
+	}
+
+	# ========================================================================
+	# 4. CENTRO DI RICERCA (Research Center)
+	# ------------------------------------------------------------------------
+	# Boost alla velocità di ricerca
+	# Non-shared, max 2 livelli per stato
+	# ========================================================================
+	research_center = {
+		base_cost = 5000
+		per_level_extra_cost = 1500
+		infrastructure_construction_effect = yes
+
+		value = 8
+		icon_frame = 15
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.6
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				research_speed_factor = 0.15					# +15% velocità di ricerca
+			}
+		}
+
+		level_cap = {
+			state_max = 2
+		}
+	}
+
+	# ========================================================================
+	# 5. COMPLESSO NAVALE-AERONAUTICO (Naval-Aerospace Complex)
+	# ------------------------------------------------------------------------
+	# Merge di: Naval Parts Factory + Aircraft Parts Factory + Naval Tech Center
+	# Boost produzione navale, aerei, velocità/gittata navi e aerei
+	# Non-shared, max 3 livelli per stato
+	# Costo = somma dei tre edifici originali (dimezzati)
+	# ========================================================================
+	naval_aerospace_complex = {
+		base_cost = 14500								# 4500 + 5000 + 5000
+		per_level_extra_cost = 2750						# 750 + 1000 + 1000
+		infrastructure_construction_effect = yes
+
+		value = 8
+		icon_frame = 11
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.5
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				# --- Da Naval Parts Factory ---
+				production_speed_dockyard_factor = 0.12		# +12% velocità costruzione cantieri navali
+				naval_equipment_design_cost_factor = -0.24	# -24% costo design navale (×4)
+				# --- Da Aircraft Parts Factory (×4) ---
+				air_range_factor = 0.16						# +16% gittata aerei
+				air_maximum_speed_factor = 0.12				# +12% velocità massima aerei
+				# --- Da Naval Tech Center (×4) ---
+				naval_speed_factor = 0.16					# +16% velocità navi
+				navy_max_range_factor = 0.20				# +20% gittata operativa navale
+			}
+		}
+
+		state_modifiers = {
+			# --- Da Naval Parts Factory (×4) ---
+			local_ship_build_speed_factor = 0.20			# +20% velocità produzione navi nello stato
+			arms_factory_output_factor = 0.20				# +20% output fabbriche militari nello stato
+		}
+
+		level_cap = {
+			state_max = 3
+		}
+		# ========================================================================
+	# 6. MINISTERO DELLA PROPAGANDA (Propaganda Ministry)
+	# ------------------------------------------------------------------------
+	# Boost a political power e stabilità nazionale
+	# MALUS sulla trade_opinion (gli altri paesi ti vedono come aggressivo)
+	# Riduce resistenza locale (la propaganda sopprime il dissenso)
+	# Non-shared, max 2 livelli per stato
+	# ========================================================================
+	propaganda_ministry = {
+		base_cost = 1200
+		per_level_extra_cost = 700
+		infrastructure_construction_effect = yes
+
+		value = 4
+		icon_frame = 16
+
+		show_on_map = 1
+		has_destroyed_mesh = no
+
+		damage_factor = 0.3
+
+		show_modifier = yes
+
+		country_modifiers = {
+			modifiers = {
+				political_power_factor = 0.08				# +8% guadagno potere politico
+				stability_factor = 0.02					# +2% stabilità nazionale
+				trade_opinion_factor = -0.02				# -5% opinione commerciale (MALUS)
+			}
+		}
+
+		state_modifiers = {
+			resistance_target = -0.02					# -2% target resistenza (propaganda sopprime dissenso)
+			compliance_growth = 0.02					# +2% crescita conformità nello stato
+		}
+
+		level_cap = {
+			state_max = 2
+		}
+	}
+
+}

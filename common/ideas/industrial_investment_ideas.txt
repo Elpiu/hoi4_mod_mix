@@ -1,0 +1,31 @@
+# ============================================================
+# INDUSTRIAL INVESTMENT - Ideas (National Spirits)
+# Permanent bonuses unlocked by the decision chain
+# ============================================================
+
+ideas = {
+    country = {
+
+        # Awarded by Node 6: Massive Industrialization (capstone)
+        # Permanent national spirit - cannot be removed
+        massive_industrialization_idea = {
+            # Replace with a custom GFX if desired.
+            # GFX_idea_generic_manpower_bonus is a safe vanilla fallback.
+            picture = GFX_idea_generic_manpower_bonus
+
+            # allowed = always = no prevents it appearing in the spirit picker
+            allowed = {
+                always = no
+            }
+
+            modifier = {
+                production_speed_buildings_factor = 0.15
+                production_factory_efficiency_gain_factor = 0.10
+                consumer_goods_factor = -0.05
+            }
+
+            # removal_cost = -1 means it cannot be removed manually
+            removal_cost = -1
+        }
+    }
+}

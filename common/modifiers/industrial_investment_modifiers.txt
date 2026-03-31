@@ -1,0 +1,10 @@
+# ============================================================
+# INDUSTRIAL INVESTMENT - Country Modifiers
+# Used by the Industrial Investment decision chain
+# ============================================================
+
+# Temporary bonus from Node 1 (lasts 365 days)
+industrial_planning_boost = {
+    production_speed_buildings_factor = 0.10
+    global_building_slots_factor = 0.05
+}

@@ -1,0 +1,18 @@
+# ============================================================
+# INDUSTRIAL INVESTMENT - Decision Category
+# Available to all nations, no prerequisites
+# ============================================================
+
+industrial_investment = {
+    icon = generic_industry
+
+    allowed = {
+        always = yes
+    }
+
+    visible = {
+        always = yes
+    }
+
+    priority = 50
+}

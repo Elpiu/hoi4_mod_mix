@@ -1,0 +1,74 @@
+﻿l_english:
+
+ # ============================================================================
+ # HEAVY MACHINERY FACTORY
+ # ============================================================================
+ heavy_machinery_factory:0 "Heavy Machinery Factory"
+ heavy_machinery_factory_desc:0 "An industrial complex dedicated to producing construction equipment and heavy machinery. Significantly boosts construction speed and infrastructure development."
+ heavy_machinery_factory_plural:0 "Heavy Machinery Factories"
+
+ modifier_production_speed_heavy_machinery_factory_factor:0 "§YHeavy Machinery Factory§! construction speed"
+ modifier_production_speed_heavy_machinery_factory_factor_desc:0 "Modifies the speed of §YHeavy Machinery Factory§! construction."
+ modifier_state_production_heavy_machinery_factory_factor:0 "§YHeavy Machinery Factory§! construction speed"
+ modifier_state_production_heavy_machinery_factory_factor_desc:0 "Modifies the speed of §YHeavy Machinery Factory§! construction in this state."
+
+ # ============================================================================
+ # FORCED LABOR CAMP
+ # ============================================================================
+ forced_labor_camp:0 "Forced Labor Camp"
+ forced_labor_camp_desc:0 "A brutal facility exploiting prisoner labor for industrial production. Provides significant economic output at the cost of available manpower and increased local resistance."
+ forced_labor_camp_plural:0 "Forced Labor Camps"
+
+ modifier_production_speed_forced_labor_camp_factor:0 "§YForced Labor Camp§! construction speed"
+ modifier_production_speed_forced_labor_camp_factor_desc:0 "Modifies the speed of §YForced Labor Camp§! construction."
+ modifier_state_production_forced_labor_camp_factor:0 "§YForced Labor Camp§! construction speed"
+ modifier_state_production_forced_labor_camp_factor_desc:0 "Modifies the speed of §YForced Labor Camp§! construction in this state."
+
+ # ============================================================================
+ # REFUGEE CENTER
+ # ============================================================================
+ refugee_center:0 "Refugee Center"
+ refugee_center_desc:0 "A facility providing shelter and integration services for displaced populations. Increases local manpower and population growth, but consumes civilian factory capacity to maintain."
+ refugee_center_plural:0 "Refugee Centers"
+
+ modifier_production_speed_refugee_center_factor:0 "§YRefugee Center§! construction speed"
+ modifier_production_speed_refugee_center_factor_desc:0 "Modifies the speed of §YRefugee Center§! construction."
+ modifier_state_production_refugee_center_factor:0 "§YRefugee Center§! construction speed"
+ modifier_state_production_refugee_center_factor_desc:0 "Modifies the speed of §YRefugee Center§! construction in this state."
+
+ # ============================================================================
+ # RESEARCH CENTER
+ # ============================================================================
+ research_center:0 "Research Center"
+ research_center_desc:0 "A state-of-the-art scientific facility housing top researchers and cutting-edge laboratories. Accelerates technological development across all fields."
+ research_center_plural:0 "Research Centers"
+
+ modifier_production_speed_research_center_factor:0 "§YResearch Center§! construction speed"
+ modifier_production_speed_research_center_factor_desc:0 "Modifies the speed of §YResearch Center§! construction."
+ modifier_state_production_research_center_factor:0 "§YResearch Center§! construction speed"
+ modifier_state_production_research_center_factor_desc:0 "Modifies the speed of §YResearch Center§! construction in this state."
+
+ # ============================================================================
+ # NAVAL-AEROSPACE COMPLEX
+ # (Merged: Naval Parts Factory + Aircraft Parts Factory + Naval Tech Center)
+ # ============================================================================
+ naval_aerospace_complex:0 "Naval-Aerospace Complex"
+ naval_aerospace_complex_desc:0 "A massive integrated industrial and engineering hub combining naval parts manufacturing, aircraft component production, and advanced naval technology research. Dramatically enhances naval production, dockyard output, aircraft performance, and fleet operational capabilities."
+ naval_aerospace_complex_plural:0 "Naval-Aerospace Complexes"
+
+ modifier_production_speed_naval_aerospace_complex_factor:0 "§YNaval-Aerospace Complex§! construction speed"
+ modifier_production_speed_naval_aerospace_complex_factor_desc:0 "Modifies the speed of §YNaval-Aerospace Complex§! construction."
+ modifier_state_production_naval_aerospace_complex_factor:0 "§YNaval-Aerospace Complex§! construction speed"
+ modifier_state_production_naval_aerospace_complex_factor_desc:0 "Modifies the speed of §YNaval-Aerospace Complex§! construction in this state."
+
+ # ============================================================================
+ # PROPAGANDA MINISTRY
+ # ============================================================================
+ propaganda_ministry:0 "Propaganda Ministry"
+ propaganda_ministry_desc:0 "A state apparatus dedicated to shaping public opinion and controlling the flow of information. Increases political power generation and national stability, but strains foreign trade relations and suppresses local resistance through fear and compliance."
+ propaganda_ministry_plural:0 "Propaganda Ministries"
+
+ modifier_production_speed_propaganda_ministry_factor:0 "§YPropaganda Ministry§! construction speed"
+ modifier_production_speed_propaganda_ministry_factor_desc:0 "Modifies the speed of §YPropaganda Ministry§! construction."
+ modifier_state_production_propaganda_ministry_factor:0 "§YPropaganda Ministry§! construction speed"
+ modifier_state_production_propaganda_ministry_factor_desc:0 "Modifies the speed of §YPropaganda Ministry§! construction in this state."

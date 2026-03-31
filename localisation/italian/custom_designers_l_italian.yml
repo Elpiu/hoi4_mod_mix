@@ -1,0 +1,13 @@
+﻿l_italian:
+
+ # ============================================================================
+ # CUSTOM AERO DESIGN (Aircraft Manufacturer)
+ # ============================================================================
+ custom_aero_design:0 "Ufficio di Progettazione Aeronautica Avanzata"
+ custom_aero_design_desc:0 "Un impianto all'avanguardia che sviluppa componenti ad alte prestazioni per l'aviazione. Aumenta la §Gvelocità massima§! e la §Ggittata operativa§! di tutti gli aerei progettati. Requisito: §YFabbrica Componenti Aeronautici§! (in qualsiasi stato posseduto)"
+
+ # ============================================================================
+ # CUSTOM NAVAL TECH (Naval Manufacturer)
+ # ============================================================================
+ custom_naval_tech:0 "Ufficio Tecnologie Navali"
+ custom_naval_tech_desc:0 "Un centro di ingegneria avanzata specializzato nella propulsione navale e nell'ottimizzazione degli scafi. Aumenta la §Gvelocità§! e la §Ggittata operativa§! di tutte le navi da guerra progettate. Requisito: §YCentro Tecnologie Navali§! (in qualsiasi stato posseduto)"

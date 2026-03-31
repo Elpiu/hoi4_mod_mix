@@ -1,0 +1,40 @@
+﻿l_english:
+ # =============================================
+ # INDUSTRIAL INVESTMENT - English Localisation
+ # =============================================
+
+ # --- Category ---
+ industrial_investment:0 "Industrial Investment"
+ industrial_investment_desc:0 "A series of decisions to massively develop our nation's industrial base, from planning to total industrialization."
+
+ # --- Node 1: Industrial Planning ---
+ industrial_planning:0 "Industrial Planning"
+ industrial_planning_desc:0 "Commission a comprehensive national plan to redirect capital and labor toward industrial development. This will boost construction speeds for §Y365 days§!."
+
+ # --- Node 2: Civilian Industrial Expansion ---
+ civilian_industrial_expansion:0 "Civilian Industrial Expansion"
+ civilian_industrial_expansion_desc:0 "Direct two civilian factories toward the construction of §G+3 Industrial Complexes§! in the capital state. Requires §Y90 days§! and 2 civilian factories."
+
+ # --- Node 3: Military Industrial Complex ---
+ military_industrial_complex:0 "Military Industrial Complex"
+ military_industrial_complex_desc:0 "Establish a dedicated military-industrial complex in the capital. Adds §G+3 Arms Factories§! instantly upon completion. Requires §Y90 days§! and 2 civilian factories."
+
+ # --- Node 4: Naval Shipyard Program ---
+ naval_shipyard_program:0 "Naval Shipyard Program"
+ naval_shipyard_program_desc:0 "Fund a large-scale construction program for new dockyards in our best coastal state. Adds §G+6 Dockyards§! instantly upon completion. Requires §Y90 days§! and 2 civilian factories."
+
+ # --- Node 5: Resource Exploitation ---
+ resource_exploitation:0 "Resource Exploitation"
+ resource_exploitation_desc:0 "Launch large-scale extraction operations in the capital state. Adds §G+8 Steel, +5 Oil, +4 Aluminium, +3 Chromium§! permanently. Requires §Y60 days§!."
+
+ # --- Node 6: Massive Industrialization (Capstone) ---
+ massive_industrialization_decision:0 "Massive Industrialization"
+ massive_industrialization_decision_desc:0 "Commit the nation to a total industrial effort. Infrastructure is built across every core state, the capital receives an immediate factory surge, and the nation gains the §Y$massive_industrialization_idea$§! national spirit permanently.\n\nRequires §Y180 days§! and 3 civilian factories."
+
+ # --- Temporary Modifier (Node 1) ---
+ industrial_planning_boost:0 "Industrial Planning Drive"
+ industrial_planning_boost_desc:0 "A wave of national investment accelerates construction and expands building capacity."
+
+ # --- Permanent National Spirit (Node 6) ---
+ massive_industrialization_idea:0 "Industrial Superpower"
+ massive_industrialization_idea_desc:0 "Years of sustained investment have transformed this nation into an industrial titan. Our factories work at peak efficiency and consumer demand is kept under control."
