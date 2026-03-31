@@ -11,16 +11,19 @@ Mod per **Hearts of Iron IV** che aggiunge nuovi edifici custom al gioco. Il pro
 
 ## Stato attuale della mod
 
-### Edifici implementati (v1.2.0)
+### Edifici implementati (v1.3.0)
 
-| ID interno | Nome IT | Tipo slot | Max Lvl | Costo base | Extra/lvl |
-|---|---|---|---|---|---|
-| `heavy_machinery_factory` | Fabbrica Macchinari Pesanti | Non-shared | 3 | 4000 | +600 |
-| `forced_labor_camp` | Campo di Lavori Forzati | Non-shared | 2 | 2500 | +400 |
-| `refugee_center` | Centro di Accoglienza | Non-shared | 2 | 3000 | +500 |
-| `research_center` | Centro di Ricerca | Non-shared | 2 | 6000 | +1500 |
-| `naval_aerospace_complex` | Complesso Navale-Aeronautico | Non-shared | 3 | 14500 | +2750 |
+| ID interno | Nome IT | Tipo slot | Max Lvl | Costo base | Extra/lvl | icon_frame |
+|---|---|---|---|---|---|---|
+| `naval_aerospace_complex` | Complesso Navale-Aeronautico | Non-shared | 3 | 14500 | +2750 | 11 |
+| `heavy_machinery_factory` | Fabbrica Macchinari Pesanti | Non-shared | 3 | 4000 | +600 | 12 |
+| `forced_labor_camp` | Campo di Lavori Forzati | Non-shared | 2 | 2500 | +400 | 13 |
+| `refugee_center` | Centro di Accoglienza | Non-shared | 2 | 3000 | +500 | 14 |
+| `research_center` | Centro di Ricerca | Non-shared | 2 | 6000 | +1500 | 15 |
+| `propaganda_ministry` | Ministero della Propaganda | Non-shared | 2 | 1200 | +700 | 16 |
 
+> **v1.3.0 — Cambiamenti:** Aggiunto `propaganda_ministry`. Fix icone: tutti gli edifici custom ora usano `icon_frame` nel range vanilla (11-16) come placeholder — nessuna DDS custom necessaria. Fix `custom_designers.txt`: i due designer si sbloccano ora con `naval_aerospace_complex` (i vecchi riferimenti a `aircraft_parts_factory` e `naval_tech_center` erano rimasti dal merge v1.2.0).
+>
 > **v1.2.0 — Cambiamenti:** Tutti i costi dimezzati. Merge di `naval_parts_factory` + `aircraft_parts_factory` + `naval_tech_center` in `naval_aerospace_complex`. Bilanciamento potenziato su tutti gli edifici.
 
 ### File esistenti
@@ -30,24 +33,37 @@ custom_buildings/
 ├── descriptor.mod                                    # Descriptor interno mod
 ├── custom_buildings.mod                              # Descriptor utente (con path=)
 ├── README.md                                         # Istruzioni installazione
-├── claude.md                                         # QUESTO FILE
+├── CLAUDE.md                                         # QUESTO FILE
 ├── common/
-│   └── buildings/
-│       └── zzz_custom_buildings.txt                  # Definizioni 7 edifici
+│   ├── buildings/
+│   │   └── zzz_custom_buildings.txt                  # Definizioni 6 edifici custom
+│   ├── decisions/
+│   │   ├── categories/
+│   │   │   └── industrial_investment_categories.txt  # Categorie decisioni investimento
+│   │   └── industrial_investment_decisions.txt       # Decisioni investimento industriale
+│   ├── ideas/
+│   │   ├── custom_designers.txt                      # Design company (aircraft + naval)
+│   │   └── industrial_investment_ideas.txt           # Idee investimento industriale
+│   └── modifiers/
+│       └── industrial_investment_modifiers.txt       # Modifier investimento
 └── localisation/
     ├── english/
-    │   └── custom_buildings_l_english.yml             # Localizzazione EN
+    │   ├── custom_buildings_l_english.yml             # Localizzazione edifici EN
+    │   └── industrial_investment_l_english.yml        # Localizzazione decisioni EN
     └── italian/
-        └── custom_buildings_l_italian.yml             # Localizzazione IT
+        ├── custom_buildings_l_italian.yml             # Localizzazione edifici IT
+        └── industrial_investment_l_italian.yml        # Localizzazione decisioni IT
 ```
 
 ### Cosa MANCA ancora
 
-- **Icone edifici**: servono 5 icone 46x46px aggiunte allo sprite strip `GFX_buildings_strip`. I frame usati sono 17-21 (frame 22-23 non più usati dopo il merge). Serve anche un file `interface/custom_buildings.gfx` per aggiornare `noOfFrames = 21`.
+- **Icone edifici**: attualmente gli edifici custom usano `icon_frame` 11-16 come **placeholder** (icone vanilla). Per avere icone dedicate servono:
+  1. Una DDS custom (strip orizzontale 46px per frame) che estende la strip vanilla aggiungendo 6 nuovi frame
+  2. Il file `interface/custom_buildings.gfx` che sovrascrive `GFX_buildings_strip` con `noOfFrames = vanilla_count + 6` puntando alla DDS custom
+  3. Aggiornare `icon_frame` degli edifici ai nuovi frame alti (es. vanilla+1 … vanilla+6)
 - **Tecnologie**: attualmente tutti gli edifici sono disponibili da subito. Il modder potrebbe volere tech per sbloccarli.
 - **Focus tree**: nessun focus tree collegato.
-- **Eventi**: nessun evento collegato.
-- **Decisioni**: nessuna decisione collegata.
+- **Eventi**: nessun evento collegato. Possibile aggiungere evento rivolta se troppi `forced_labor_camp` costruiti.
 - **Modelli 3D**: nessun modello sulla mappa (solo `show_on_map = 1` placeholder).
 
 ---
@@ -58,6 +74,7 @@ custom_buildings/
 2. **Disponibili da subito** — nessuna tech necessaria per costruirli. Se si aggiungono tech in futuro, aggiungere `hide_if_missing_tech = yes` alla definizione del building.
 3. **Trade-off deliberati** — Il Campo di Lavori Forzati ha malus manpower/resistenza. Il Centro di Accoglienza costa consumer goods e stabilità. Mantenere questo pattern per nuovi edifici.
 4. **Bilanciamento potenziato (v1.2.0)** — I bonus sono stati aumentati significativamente. Il Centro di Ricerca al 15% è molto forte — non aggiungere altri edifici con `research_speed_factor` senza bilanciare. Il `Complesso Navale-Aeronautico` è volutamente costoso (14500 base) perché combina tre edifici.
+5. **Propaganda Ministry trade-off (v1.3.0)** — Il `propaganda_ministry` fornisce PP e stabilità ma penalizza i rapporti commerciali. Costo base basso (1200) compensato dai malus. Non aggiungere altri edifici con `political_power_factor` senza verificare l'impatto cumulativo.
 5. **Naming convention** — ID interni in snake_case inglese. Localizzazione sempre in entrambe le lingue.
 6. **File prefix `zzz_`** — Il file buildings usa il prefisso `zzz_` per essere valutato DOPO i file vanilla, evitando conflitti.
 
@@ -381,17 +398,21 @@ Se si aggiungono `replace_path`, vanno in ENTRAMBI i file.
 
 ### Sprite / Icone (interface/*.gfx)
 
-Per aggiungere icone custom, creare `interface/custom_buildings.gfx`:
+**Stato attuale (placeholder):** gli edifici custom usano `icon_frame` 11-16, che corrispondono a icone vanilla esistenti. Nessun file GFX necessario.
+
+**Quando si hanno le icone custom**, creare `interface/custom_buildings.gfx`:
 
 ```
 spriteTypes = {
     spriteType = {
         name = "GFX_buildings_strip"
-        textureFile = "gfx/interface/buildings/building_icon_strip.dds"
-        noOfFrames = 21      # Vanilla = 16, noi aggiungiamo frame 17-21
+        textureFile = "gfx/interface/buildings/custom_building_icon_strip.dds"
+        noOfFrames = XX      # vanilla_count + 6 (verifica noOfFrames vanilla prima)
     }
 }
 ```
+
+**ATTENZIONE:** La DDS custom deve contenere TUTTI i frame vanilla + i nuovi. Non puntare alla DDS vanilla con un noOfFrames maggiore: si leggerebbero pixel fuori dai limiti dell'immagine, causando icone corrotte o crash. Creare sempre una DDS estesa che includa i frame vanilla + i custom appesi in fondo.
 
 Le icone sono 46x46 pixel ciascuna, allineate orizzontalmente in un'unica strip DDS.
 
@@ -426,8 +447,8 @@ Il modder ha menzionato questi edifici come punto di partenza. Possibili aggiunt
 2. [ ] Aggiungere localizzazione in `localisation/english/custom_buildings_l_english.yml`
 3. [ ] Aggiungere localizzazione in `localisation/italian/custom_buildings_l_italian.yml`
 4. [ ] Verificare che il file .yml abbia il BOM (UTF-8-BOM)
-5. [ ] Assegnare un `icon_frame` non in conflitto con altri edifici
-6. [ ] Aggiornare `noOfFrames` nel file GFX se si usano frame nuovi
+5. [ ] Assegnare un `icon_frame` non in conflitto con altri edifici custom (attualmente usati: 11-16)
+6. [ ] Se si usa un frame > range vanilla: creare DDS estesa + `interface/custom_buildings.gfx` con `noOfFrames` corretto. Se si rimane nel range vanilla: nessun file GFX necessario.
 7. [ ] Aggiornare questo `claude.md` con i dettagli del nuovo edificio
 8. [ ] Testare con `-debug` e verificare error.log
 9. [ ] Aggiornare `README.md` e `version` nei descriptor
